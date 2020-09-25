@@ -218,7 +218,7 @@ def fishing(hwnd):
 # Main program
 if __name__ == "__main__":
     # Set up console
-    system("title "+programName)
+    system("title " + programName)
 
     # Set up logger
     FORMAT = "%(message)s"
@@ -230,7 +230,7 @@ if __name__ == "__main__":
     # Title
     console = Console()
     title = [
-        "# 劍靈自動釣魚程式v1.0 - 玉蜂 2020",
+        "# " + programName + " - 玉蜂 2020",
         "## 使用前須知",
         "- 使用方法時請先閱讀README檔案，初次使用前須進行初期設定",
         "- 此程式只供測試用，且可能違反劍靈用戶協議，本人不負任何責任，請自行衡量",
