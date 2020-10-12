@@ -296,7 +296,7 @@ class Worker(QtCore.QObject):
   def addLoad(self, val):
     self.loadProgress += val
     window.ui.barLoad.setValue(self.loadProgress)
-    sleep(0.5)
+    sleep(0.8)
 
   def addLog(self, msg, detail=False, bold=False):
     if not detail or cfg.showDetails:
