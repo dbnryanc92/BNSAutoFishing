@@ -381,8 +381,10 @@ class GUI(QtWidgets.QMainWindow):
     self.ui.btnDebug.clicked.connect(self.btnDebug)
     self.ui.btnStart.clicked.connect(self.startStop)
     checkboxWidget = []
+    btnWidget = []
     for i in range(10):
       checkboxWidget.append(self.ui.gridStatus.itemAt(i).widget().layout().itemAt(0).widget())
+      btnWidget.append(self.ui.gridStatus.itemAt(i).widget().layout().itemAt(1).widget())
     checkboxWidget[0].stateChanged.connect(lambda: self.toggleThreadPause(0))
     checkboxWidget[1].stateChanged.connect(lambda: self.toggleThreadPause(1))
     checkboxWidget[2].stateChanged.connect(lambda: self.toggleThreadPause(2))
@@ -393,6 +395,16 @@ class GUI(QtWidgets.QMainWindow):
     checkboxWidget[7].stateChanged.connect(lambda: self.toggleThreadPause(7))
     checkboxWidget[8].stateChanged.connect(lambda: self.toggleThreadPause(8))
     checkboxWidget[9].stateChanged.connect(lambda: self.toggleThreadPause(9))
+    btnWidget[0].clicked.connect(lambda: self.focusClientWindow(0))
+    btnWidget[1].clicked.connect(lambda: self.focusClientWindow(1))
+    btnWidget[2].clicked.connect(lambda: self.focusClientWindow(2))
+    btnWidget[3].clicked.connect(lambda: self.focusClientWindow(3))
+    btnWidget[4].clicked.connect(lambda: self.focusClientWindow(4))
+    btnWidget[5].clicked.connect(lambda: self.focusClientWindow(5))
+    btnWidget[6].clicked.connect(lambda: self.focusClientWindow(6))
+    btnWidget[7].clicked.connect(lambda: self.focusClientWindow(7))
+    btnWidget[8].clicked.connect(lambda: self.focusClientWindow(8))
+    btnWidget[9].clicked.connect(lambda: self.focusClientWindow(9))
     self.ui.btnConfigSave.clicked.connect(cfg.save)
     self.ui.btnConfigRestore.clicked.connect(cfg.restore)
     self.ui.btnConfigDefault.clicked.connect(cfg.default)
@@ -432,6 +444,13 @@ class GUI(QtWidgets.QMainWindow):
       self.addLog(f"劍靈客戶端[{hwnd}]－此客戶端暫停釣魚")
     else:
       self.addLog(f"劍靈客戶端[{hwnd}]－此客戶端繼續釣魚")
+
+  def focusClientWindow(self, pos):
+    bnsClientHwnd = self.ui.gridStatus.itemAt(pos).widget().property("hwnd")
+    fishingAppHwnd = win32gui.GetForegroundWindow()
+    win32gui.BringWindowToTop(bnsClientHwnd)
+    sleep(0.05)
+    win32gui.BringWindowToTop(fishingAppHwnd)
 
   def addLog(self, msg, detail=False, bold=False):
     if not detail or cfg.showDetails:

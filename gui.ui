@@ -799,7 +799,7 @@
          <x>10</x>
          <y>50</y>
          <width>321</width>
-         <height>202</height>
+         <height>201</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridStatus" rowminimumheight="20,20,20,20,20,20,20,20,20,20">
@@ -808,7 +808,13 @@
         </property>
         <item row="0" column="0">
          <widget class="QWidget" name="statusHwnd_1" native="true">
-          <layout class="QHBoxLayout" name="layoutStatusHwnd_1" stretch="1,3,5,2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="layoutStatusHwnd_1" stretch="1,0,5,2">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -832,12 +838,18 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="lblHwndHwnd_1">
+            <widget class="QToolButton" name="btnHwndHwnd_1">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>按下按鈕將把此客戶端的視窗移到最上層</string>
+             </property>
              <property name="text">
               <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -847,7 +859,7 @@
               <string/>
              </property>
              <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -866,7 +878,13 @@
         </item>
         <item row="1" column="0">
          <widget class="QWidget" name="statusHwnd_2" native="true">
-          <layout class="QHBoxLayout" name="layoutStatusHwnd_2" stretch="1,3,5,2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="layoutStatusHwnd_2" stretch="1,0,5,2">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -890,12 +908,18 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="lblHwndHwnd_2">
+            <widget class="QToolButton" name="btnHwndHwnd_2">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>按下按鈕將把此客戶端的視窗移到最上層</string>
+             </property>
              <property name="text">
               <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -905,7 +929,7 @@
               <string/>
              </property>
              <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -924,7 +948,13 @@
         </item>
         <item row="2" column="0">
          <widget class="QWidget" name="statusHwnd_3" native="true">
-          <layout class="QHBoxLayout" name="layoutStatusHwnd_3" stretch="1,3,5,2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="layoutStatusHwnd_3" stretch="1,0,5,2">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -948,12 +978,18 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="lblHwndHwnd_3">
+            <widget class="QToolButton" name="btnHwndHwnd_3">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>按下按鈕將把此客戶端的視窗移到最上層</string>
+             </property>
              <property name="text">
               <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -963,7 +999,7 @@
               <string/>
              </property>
              <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -982,7 +1018,13 @@
         </item>
         <item row="3" column="0">
          <widget class="QWidget" name="statusHwnd_4" native="true">
-          <layout class="QHBoxLayout" name="layoutStatusHwnd_4" stretch="1,3,5,2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="layoutStatusHwnd_4" stretch="1,0,5,2">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -1006,12 +1048,18 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="lblHwndHwnd_4">
+            <widget class="QToolButton" name="btnHwndHwnd_4">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>按下按鈕將把此客戶端的視窗移到最上層</string>
+             </property>
              <property name="text">
               <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -1021,7 +1069,7 @@
               <string/>
              </property>
              <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -1040,7 +1088,13 @@
         </item>
         <item row="4" column="0">
          <widget class="QWidget" name="statusHwnd_5" native="true">
-          <layout class="QHBoxLayout" name="layoutStatusHwnd_5" stretch="1,3,5,2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="layoutStatusHwnd_5" stretch="1,0,5,2">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -1064,12 +1118,18 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="lblHwndHwnd_5">
+            <widget class="QToolButton" name="btnHwndHwnd_5">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>按下按鈕將把此客戶端的視窗移到最上層</string>
+             </property>
              <property name="text">
               <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -1079,7 +1139,7 @@
               <string/>
              </property>
              <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -1098,7 +1158,13 @@
         </item>
         <item row="5" column="0">
          <widget class="QWidget" name="statusHwnd_6" native="true">
-          <layout class="QHBoxLayout" name="layoutStatusHwnd_6" stretch="1,3,5,2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="layoutStatusHwnd_6" stretch="1,0,5,2">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -1122,12 +1188,18 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="lblHwndHwnd_6">
+            <widget class="QToolButton" name="btnHwndHwnd_6">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>按下按鈕將把此客戶端的視窗移到最上層</string>
+             </property>
              <property name="text">
               <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -1137,7 +1209,7 @@
               <string/>
              </property>
              <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -1156,7 +1228,13 @@
         </item>
         <item row="6" column="0">
          <widget class="QWidget" name="statusHwnd_7" native="true">
-          <layout class="QHBoxLayout" name="layoutStatusHwnd_7" stretch="1,3,5,2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="layoutStatusHwnd_7" stretch="1,0,5,2">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -1180,12 +1258,18 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="lblHwndHwnd_7">
+            <widget class="QToolButton" name="btnHwndHwnd_7">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>按下按鈕將把此客戶端的視窗移到最上層</string>
+             </property>
              <property name="text">
               <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -1195,7 +1279,7 @@
               <string/>
              </property>
              <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -1214,7 +1298,13 @@
         </item>
         <item row="7" column="0">
          <widget class="QWidget" name="statusHwnd_8" native="true">
-          <layout class="QHBoxLayout" name="layoutStatusHwnd_8" stretch="1,3,5,2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="layoutStatusHwnd_8" stretch="1,0,5,2">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -1238,12 +1328,18 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="lblHwndHwnd_8">
+            <widget class="QToolButton" name="btnHwndHwnd_8">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>按下按鈕將把此客戶端的視窗移到最上層</string>
+             </property>
              <property name="text">
               <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -1253,7 +1349,7 @@
               <string/>
              </property>
              <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -1272,7 +1368,13 @@
         </item>
         <item row="8" column="0">
          <widget class="QWidget" name="statusHwnd_9" native="true">
-          <layout class="QHBoxLayout" name="layoutStatusHwnd_9" stretch="1,3,5,2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="layoutStatusHwnd_9" stretch="1,0,5,2">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -1296,12 +1398,18 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="lblHwndHwnd_9">
+            <widget class="QToolButton" name="btnHwndHwnd_9">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>按下按鈕將把此客戶端的視窗移到最上層</string>
+             </property>
              <property name="text">
               <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -1311,7 +1419,7 @@
               <string/>
              </property>
              <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -1330,7 +1438,13 @@
         </item>
         <item row="9" column="0">
          <widget class="QWidget" name="statusHwnd_10" native="true">
-          <layout class="QHBoxLayout" name="layoutStatusHwnd_10" stretch="1,3,5,2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="layoutStatusHwnd_10" stretch="1,0,5,2">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -1354,12 +1468,18 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="lblHwndHwnd_10">
+            <widget class="QToolButton" name="btnHwndHwnd_10">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>按下按鈕將把此客戶端的視窗移到最上層</string>
+             </property>
              <property name="text">
               <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -1369,7 +1489,7 @@
               <string/>
              </property>
              <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -1407,7 +1527,7 @@
          <height>31</height>
         </rect>
        </property>
-       <layout class="QHBoxLayout" name="layoutStatusTitle" stretch="1,3,6,2">
+       <layout class="QHBoxLayout" name="layoutStatusTitle" stretch="1,0,5,2">
         <item>
          <widget class="QLabel" name="lblPauseTitle">
           <property name="font">
@@ -1425,6 +1545,12 @@
         </item>
         <item>
          <widget class="QLabel" name="lblHwndTitle">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <pointsize>10</pointsize>
@@ -1492,7 +1618,7 @@
          <x>10</x>
          <y>30</y>
          <width>321</width>
-         <height>42</height>
+         <height>41</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridInfo">
