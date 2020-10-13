@@ -125,7 +125,7 @@ def fishing(hwnd):
     else:
       try:
         if mainSwitch and not hwndThreads[hwnd]["pause"]:
-          hwndThreads[hwnd]["statusText"] = "偵測收竿按鈕中"
+          hwndThreads[hwnd]["statusText"] = "釣魚中"
           matchRate = imageMatch(hwnd, cfg.captureImg)
           if matchRate < cfg.threshold:
             hwndThreads[hwnd]["countNotMatch"] += 1
@@ -154,7 +154,10 @@ def fishing(hwnd):
           # Delay for next loop
           sleep(cfg.interval)
         else:
-          hwndThreads[hwnd]["statusText"] = "未運行"
+          if not mainSwitch:
+            hwndThreads[hwnd]["statusText"] = "程式未運行"
+          else:
+            hwndThreads[hwnd]["statusText"] = "暫停中"
           sleep(1)
       except:
         # print("Unexpected error:", sys.exc_info())
