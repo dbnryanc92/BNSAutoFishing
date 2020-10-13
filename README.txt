@@ -1,7 +1,7 @@
 劍靈自動釣魚程式
 
 製作：玉蜂 (dbnryanc92)
-版本：2.0
+版本：2.1
 網址：https://bnshive.com/fishing
 
 --------
