@@ -449,11 +449,14 @@ class GUI(QtWidgets.QMainWindow):
       self.addLog(f"劍靈客戶端[{hwnd}]－此客戶端繼續釣魚")
 
   def focusClientWindow(self, pos):
-    bnsClientHwnd = self.ui.gridStatus.itemAt(pos).widget().property("hwnd")
-    fishingAppHwnd = win32gui.GetForegroundWindow()
-    win32gui.BringWindowToTop(bnsClientHwnd)
-    sleep(0.05)
-    win32gui.BringWindowToTop(fishingAppHwnd)
+    try:
+      bnsClientHwnd = self.ui.gridStatus.itemAt(pos).widget().property("hwnd")
+      fishingAppHwnd = win32gui.GetForegroundWindow()
+      win32gui.BringWindowToTop(bnsClientHwnd)
+      sleep(0.05)
+      win32gui.BringWindowToTop(fishingAppHwnd)
+    except:
+      return
 
   def addLog(self, msg, detail=False, bold=False):
     if not detail or cfg.showDetails:
