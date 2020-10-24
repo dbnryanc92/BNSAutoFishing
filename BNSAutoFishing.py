@@ -123,6 +123,10 @@ def fishing(hwnd):
       hwndThreads[hwnd]["statusText"] = "找不到釣魚按鈕截圖"
       sleep(1)
     else:
+      # Check if client window exist
+      if win32gui.GetWindowText(hwnd) != clientName:
+        break
+      # Main fishing loop
       try:
         if mainSwitch and not hwndThreads[hwnd]["pause"]:
           hwndThreads[hwnd]["statusText"] = "釣魚中"
