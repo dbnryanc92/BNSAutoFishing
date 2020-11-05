@@ -3,7 +3,7 @@
 --------
   Title: BNS Auto Fishing
  Author: dbnryanc92 (玉蜂)
-Version: 2.1
+Version: 2.2
 '''
 
 # Image capture / match
@@ -36,7 +36,7 @@ hwndThreads = {}
 
 # Constants
 programName = "劍靈自動釣魚程式"
-programVersion = "v2.1"
+programVersion = "v2.2"
 clientName = "劍靈"
 configFile = "config.ini"
 dragKey = "F"
@@ -460,7 +460,7 @@ class GUI(QtWidgets.QMainWindow):
     if self.loadDone and cfg.hideToTray:
       event.ignore()
       self.hide()
-      self.tray_icon.showMessage(programName, "縮小到系統列在背景運行", QtGui.QIcon("icon_tray.ico"), 2000)
+      self.tray_icon.showMessage(programName, "縮小到系統列在背景運行", QtGui.QIcon(":/icon.ico"), 2000)
 
   def restoreFromTray(self, event):
     if event == QtWidgets.QSystemTrayIcon.DoubleClick:
