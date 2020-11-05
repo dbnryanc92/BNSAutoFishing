@@ -183,6 +183,7 @@ class Config:
   enableStopCheck = enableStopCheckDefault = False
   stopCheckInterval = stopCheckIntervalDefault = 40
   showDetails = showDetailsDefault = False
+  hideToTray = hideToTrayDefault = False
   darkTheme = darkThemeDefault = True
 
   def __init__(self):
@@ -198,6 +199,7 @@ class Config:
       self.enableStopCheck = config.getboolean('UserPreference', 'enableStopCheck', fallback=self.enableStopCheckDefault)
       self.stopCheckInterval = config.getint('UserPreference', 'stopCheckInterval', fallback=self.stopCheckIntervalDefault)
       self.showDetails = config.getboolean('UserPreference', 'showDetails', fallback=self.showDetailsDefault)
+      self.hideToTray = config.getboolean('UserPreference', 'hideToTray', fallback=self.hideToTrayDefault)
       self.darkTheme = config.getboolean('UserPreference', 'darkTheme', fallback=self.darkThemeDefault)
     
     # Calculated configuration
@@ -218,6 +220,7 @@ class Config:
     window.ui.inputEnableStopCheck.setChecked(self.enableStopCheck)
     window.ui.inputStopCheckInterval.setValue(self.stopCheckInterval)
     window.ui.inputShowDetails.setChecked(self.showDetails)
+    window.ui.inputHideToTray.setChecked(self.hideToTray)
     window.ui.inputDarkTheme.setChecked(self.darkTheme)
     if default:
       window.ui.inputCaptureImg.setText(self.captureImgDefault)
@@ -228,6 +231,7 @@ class Config:
       window.ui.inputEnableStopCheck.setChecked(self.enableStopCheckDefault)
       window.ui.inputStopCheckInterval.setValue(self.stopCheckIntervalDefault)
       window.ui.inputShowDetails.setChecked(self.showDetailsDefault)
+      window.ui.inputHideToTray.setChecked(self.hideToTrayDefault)
       window.ui.inputDarkTheme.setChecked(self.darkThemeDefault)
 
   def getUiValue(self):
@@ -239,6 +243,7 @@ class Config:
     self.enableStopCheck = window.ui.inputEnableStopCheck.isChecked()
     self.stopCheckInterval = window.ui.inputStopCheckInterval.value()
     self.showDetails = window.ui.inputShowDetails.isChecked()
+    self.hideToTray = window.ui.inputHideToTray.isChecked()
     self.darkTheme = window.ui.inputDarkTheme.isChecked()
     # Calculated configuration
     self.stopCheckFreq = int(round(self.stopCheckInterval / self.interval))
@@ -257,6 +262,7 @@ class Config:
     pref["enableStopCheck"] = str(self.enableStopCheck)
     pref["stopCheckInterval"] = str(self.stopCheckInterval)
     pref["showDetails"] = str(self.showDetails)
+    pref["hideToTray"] = str(self.hideToTray)
     pref["darkTheme"] = str(self.darkTheme)
     with open(configFile, "w") as file:
       config.write(file)
@@ -384,6 +390,23 @@ class GUI(QtWidgets.QMainWindow):
     self.ui.tabsMain.hide()
     self.ui.widgetDebug.hide()
 
+    # System tray icon
+    self.tray_icon = QtWidgets.QSystemTrayIcon(self)
+    self.tray_icon.setIcon(QtGui.QIcon("icon_tray.ico"))
+    show_action = QtWidgets.QAction("顯示", self)
+    hide_action = QtWidgets.QAction("隱藏", self)
+    quit_action = QtWidgets.QAction("結束程式", self)
+    show_action.triggered.connect(self.show)
+    hide_action.triggered.connect(self.hide)
+    quit_action.triggered.connect(QtWidgets.qApp.quit)
+    tray_menu = QtWidgets.QMenu()
+    tray_menu.addAction(show_action)
+    tray_menu.addAction(hide_action)
+    tray_menu.addAction(quit_action)
+    self.tray_icon.setContextMenu(tray_menu)
+    self.tray_icon.show()
+    self.tray_icon.activated.connect(self.restoreFromTray)
+
     # Connect UI components
     self.ui.btnDebug.clicked.connect(self.btnDebug)
     self.ui.btnStart.clicked.connect(self.startStop)
@@ -427,6 +450,17 @@ class GUI(QtWidgets.QMainWindow):
 
     self.show()
     
+  # Hide to tray: override closeEvent
+  def closeEvent(self, event):
+    if cfg.hideToTray:
+      event.ignore()
+      self.hide()
+      self.tray_icon.showMessage(programName, "縮小到系統列在背景運行", QtGui.QIcon("icon_tray.ico"), 2000)
+
+  def restoreFromTray(self, event):
+    if event == QtWidgets.QSystemTrayIcon.DoubleClick:
+      self.show()
+
   def btnDebug(self):
     print(hwndThreads)
 

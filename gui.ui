@@ -232,7 +232,7 @@
         <x>400</x>
         <y>10</y>
         <width>341</width>
-        <height>381</height>
+        <height>421</height>
        </rect>
       </property>
       <property name="title">
@@ -635,7 +635,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>280</y>
+         <y>310</y>
          <width>321</width>
          <height>22</height>
         </rect>
@@ -657,7 +657,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>310</y>
+         <y>340</y>
          <width>101</width>
          <height>31</height>
         </rect>
@@ -680,7 +680,7 @@
        <property name="geometry">
         <rect>
          <x>120</x>
-         <y>310</y>
+         <y>340</y>
          <width>101</width>
          <height>31</height>
         </rect>
@@ -701,7 +701,7 @@
        <property name="geometry">
         <rect>
          <x>230</x>
-         <y>310</y>
+         <y>340</y>
          <width>101</width>
          <height>31</height>
         </rect>
@@ -722,7 +722,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>350</y>
+         <y>380</y>
          <width>321</width>
          <height>21</height>
         </rect>
@@ -777,6 +777,28 @@
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget_17">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>280</y>
+         <width>321</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="frameHideToTray">
+        <item>
+         <widget class="QCheckBox" name="inputHideToTray">
+          <property name="toolTip">
+           <string>啟動後，程式在關閉時，視窗將縮小到系統列，並在背景持續運行</string>
+          </property>
+          <property name="text">
+           <string>程式關閉時視窗縮小到系統列</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupStatus">
       <property name="geometry">
@@ -799,7 +821,7 @@
          <x>10</x>
          <y>50</y>
          <width>321</width>
-         <height>201</height>
+         <height>202</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridStatus" rowminimumheight="20,20,20,20,20,20,20,20,20,20">
@@ -1618,7 +1640,7 @@
          <x>10</x>
          <y>30</y>
          <width>321</width>
-         <height>41</height>
+         <height>42</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridInfo">
