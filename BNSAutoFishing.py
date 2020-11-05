@@ -46,8 +46,11 @@ VK_Keys = {'1': 0x31, '5': 0x35, '6': 0x36, '7': 0x37, '8': 0x38, 'F': 0x46}
 # Formatting
 enableText = {True: "啟動", False: "關閉"}
 showText = {True: "顯示", False: "隱藏"}
-def percent(val):
-  return "{:.0%}".format(val)
+def percent(val, digit=0):
+  if digit == 0:
+    return "{:.0%}".format(val)
+  else:
+    return str(round(val * 100, digit)) + '%'
 def timestamp():
   return "【" + datetime.now().strftime("%H:%M:%S") + "】"
 
@@ -133,7 +136,7 @@ def fishing(hwnd):
           matchRate = imageMatch(hwnd, cfg.captureImg)
           if matchRate < cfg.threshold:
             hwndThreads[hwnd]["countNotMatch"] += 1
-            window.addLog(f"劍靈客戶端[{hwnd}]－未偵測到收竿按鈕", detail=True)
+            window.addLog(f"劍靈客戶端[{hwnd}]－未偵測到收竿按鈕（匹配度：{percent(matchRate, 1)}）", detail=True)
 
             # Stop check
             if cfg.enableStopCheck:
@@ -142,7 +145,7 @@ def fishing(hwnd):
                 hwndThreads[hwnd]["countNotMatch"] = 0
                 window.addLog(f"劍靈客戶端[{hwnd}]－檢查到釣魚狀態停止，已重新下魚餌")
           else:
-            window.addLog(f"劍靈客戶端[{hwnd}]－已偵測到收竿按鈕", detail=True)
+            window.addLog(f"劍靈客戶端[{hwnd}]－已偵測到收竿按鈕（匹配度：{percent(matchRate, 1)}）", detail=True)
 
             # Delay & drag
             sleep(cfg.dragDelay)
@@ -392,7 +395,7 @@ class GUI(QtWidgets.QMainWindow):
 
     # System tray icon
     self.tray_icon = QtWidgets.QSystemTrayIcon(self)
-    self.tray_icon.setIcon(QtGui.QIcon("icon_tray.ico"))
+    self.tray_icon.setIcon(QtGui.QIcon("icon.ico"))
     show_action = QtWidgets.QAction("顯示", self)
     hide_action = QtWidgets.QAction("隱藏", self)
     quit_action = QtWidgets.QAction("結束程式", self)
