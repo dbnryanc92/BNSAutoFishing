@@ -360,6 +360,7 @@ class Worker(QtCore.QObject):
       if self.loadProgress >= 100:
         window.ui.tabsMain.show()
         window.ui.widgetLoad.hide()
+        window.loadDone = True
         self.addLog(f"{programName}{programVersion}載入完成", bold=True)
 
       # Operation loop
@@ -384,6 +385,7 @@ class Worker(QtCore.QObject):
 
 # Program window (GUI)
 class GUI(QtWidgets.QMainWindow):
+  loadDone = False
   def __init__(self):
     # Initialize and setup window
     super(GUI, self).__init__()
@@ -395,7 +397,7 @@ class GUI(QtWidgets.QMainWindow):
 
     # System tray icon
     self.tray_icon = QtWidgets.QSystemTrayIcon(self)
-    self.tray_icon.setIcon(QtGui.QIcon("icon.ico"))
+    self.tray_icon.setIcon(QtGui.QIcon(":/icon.ico"))
     show_action = QtWidgets.QAction("顯示", self)
     hide_action = QtWidgets.QAction("隱藏", self)
     quit_action = QtWidgets.QAction("結束程式", self)
@@ -455,7 +457,7 @@ class GUI(QtWidgets.QMainWindow):
     
   # Hide to tray: override closeEvent
   def closeEvent(self, event):
-    if cfg.hideToTray:
+    if self.loadDone and cfg.hideToTray:
       event.ignore()
       self.hide()
       self.tray_icon.showMessage(programName, "縮小到系統列在背景運行", QtGui.QIcon("icon_tray.ico"), 2000)
