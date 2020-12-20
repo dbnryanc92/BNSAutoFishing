@@ -37,7 +37,7 @@ hwndThreads = {}
 # Constants
 programName = "劍靈自動釣魚程式"
 programVersion = "v2.2"
-clientName = "劍靈"
+clientName = ["劍靈", "ブレイドアンドソウル", "블레이드 & 소울"]
 configFile = "config.ini"
 dragKey = "F"
 # VK_Key_Code : http://www.kbdedit.com/manual/low_level_vk_list.html
@@ -73,8 +73,7 @@ def matchWindowHwnd(pattern):
   # Find matching window hwnd
   matchList = []
   for window in windowList:
-    if pattern == win32gui.GetWindowText(window): # Exact match
-    #if pattern in win32gui.GetWindowText(window): # Contain
+    if win32gui.GetWindowText(window) in pattern: # Exact match from a list
       matchList.append(window)
   return matchList
 
@@ -104,6 +103,7 @@ def scanWindowHwnd(pattern):
       hwndThreads[hwnd]["pause"] = False
       hwndThreads[hwnd]["countDragSuccess"] = 0
       hwndThreads[hwnd]["countNotMatch"] = 0
+      hwndThreads[hwnd]["statusText"] = ""
 
     # Start thread
     if hwndThreads[hwnd]["status"] == 0:
@@ -127,7 +127,7 @@ def fishing(hwnd):
       sleep(1)
     else:
       # Check if client window exist
-      if win32gui.GetWindowText(hwnd) != clientName:
+      if win32gui.GetWindowText(hwnd) not in clientName:
         break
       # Main fishing loop
       try:
