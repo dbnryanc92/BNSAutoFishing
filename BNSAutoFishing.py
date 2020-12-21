@@ -3,7 +3,7 @@
 --------
   Title: BNS Auto Fishing
  Author: dbnryanc92 (玉蜂)
-Version: 2.2
+Version: 2.3
 '''
 
 # Image capture / match
@@ -36,7 +36,7 @@ hwndThreads = {}
 
 # Constants
 programName = "劍靈自動釣魚程式"
-programVersion = "v2.2"
+programVersion = "v2.3"
 clientName = ["劍靈", "ブレイドアンドソウル", "블레이드 & 소울"]
 configFile = "config.ini"
 dragKey = "F"
