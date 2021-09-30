@@ -22,7 +22,7 @@ from datetime import datetime
 from os import path, system
 from threading import Thread
 # Classes / method modules
-from ImageMatch import imageMatch
+from ImageMatch import imageMatch, getWindowImg
 # GUI
 from PyQt5 import QtCore, QtGui, QtWidgets
 import gui
@@ -36,7 +36,7 @@ hwndThreads = {}
 
 # Constants
 programName = "劍靈自動釣魚程式"
-programVersion = "v2.3"
+programVersion = "v2.4"
 clientName = ["劍靈", "ブレイドアンドソウル", "블레이드 & 소울"]
 configFile = "config.ini"
 dragKey = "F"
@@ -393,7 +393,7 @@ class GUI(QtWidgets.QMainWindow):
     self.ui.setupUi(self)
     self.ui.lblVersion.setText(programVersion)
     self.ui.tabsMain.hide()
-    self.ui.widgetDebug.hide()
+    # self.ui.widgetDebug.hide()
 
     # System tray icon
     self.tray_icon = QtWidgets.QSystemTrayIcon(self)
@@ -413,7 +413,7 @@ class GUI(QtWidgets.QMainWindow):
     self.tray_icon.activated.connect(self.restoreFromTray)
 
     # Connect UI components
-    self.ui.btnDebug.clicked.connect(self.btnDebug)
+    self.ui.btnScreenshot.clicked.connect(self.btnScreenshot)
     self.ui.btnStart.clicked.connect(self.startStop)
     checkboxWidget = []
     btnWidget = []
@@ -466,8 +466,12 @@ class GUI(QtWidgets.QMainWindow):
     if event == QtWidgets.QSystemTrayIcon.DoubleClick:
       self.show()
 
-  def btnDebug(self):
-    print(hwndThreads)
+  def btnScreenshot(self):
+    #print(hwndThreads) # Debug purpose
+    matchList = matchWindowHwnd(clientName)
+    if len(matchList) > 0:
+      getWindowImg(matchList[0], True)
+      print(matchList[0])
 
   def startStop(self):
     global mainSwitch

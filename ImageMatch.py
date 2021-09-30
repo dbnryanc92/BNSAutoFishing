@@ -20,7 +20,7 @@ def getWindowSize(hwnd):
   # print("Position:", (left, top, width, height), "Size:", (x, y))
   return (left, top, width, height, x, y)
 
-def getWindowImg(hwnd):
+def getWindowImg(hwnd, screenshot=False):
   # Check whether window is minimized
   minimized = win32gui.IsIconic(hwnd)
   if minimized == 1:
@@ -45,15 +45,17 @@ def getWindowImg(hwnd):
   saveBitMap = win32ui.CreateBitmap()
   saveBitMap.CreateCompatibleBitmap(mfcDC, x, y)
   saveDC.SelectObject(saveBitMap)
-  windll.user32.PrintWindow(hwnd, saveDC.GetSafeHdc(), 1)
+  windll.user32.PrintWindow(hwnd, saveDC.GetSafeHdc(), 3)
   signedIntsArray = saveBitMap.GetBitmapBits(True)
   img = np.frombuffer(signedIntsArray, dtype='uint8')
   img.shape = (y, x, 4)
 
   # Debug
   # print("saveBitMap.GetInfo():", saveBitMap.GetInfo())
-  # saveBitMap.SaveBitmapFile(saveDC, "debug.png")
   # print(img)
+  # Save Screenshot
+  if screenshot:
+    saveBitMap.SaveBitmapFile(saveDC, "screenshot.png")
 
   # Release memory
   saveDC.DeleteDC()
